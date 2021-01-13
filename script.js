@@ -2,6 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 const encodedProxyMap = process.env.PROXY_MAP
+console.log(encodedProxyMap)
 const proxyMap = JSON.parse(Buffer.from(encodedProxyMap, 'base64').toString('utf8'))
 
 const nginxConfContent = proxyMap.map(({source, destination}) => `
